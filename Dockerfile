@@ -53,9 +53,16 @@ RUN apt-get install -y python python-pip
 
 COPY sshd_config /etc/ssh/sshd_config
 COPY data-acceptance.jar /data-acceptance.jar
-COPY run.sh /run.sh
+
+
+COPY runTestServer.sh /runTestServer.sh
+COPY runOnlineServer.sh /runOnlineServer.sh
+
 COPY entrypoint.sh /entrypoint.sh
-RUN chmod a+x /run.sh
+
+
+RUN chmod a+x  /runOnlineServer.sh
+RUN chmod a+x /runTestServer.sh
 RUN chmod a+x /entrypoint.sh
 RUN chmod a+x /data-acceptance.jar
 #USER admin
